@@ -3,7 +3,7 @@ import {render, fireEvent} from '@testing-library/react-native';
 import App from '../App';
 
 jest.mock('react-native-vector-icons/AntDesign', () => 'AntDesign');
-jest.mock('../utils', () => ({
+jest.mock('../Features/Helper/utils', () => ({
   searchByName: jest.fn(),
 }));
 
@@ -21,7 +21,7 @@ describe('App Component', () => {
       rank: 1,
       bananas: 10,
     }));
-    require('../utils').searchByName = mockSearchByName;
+    require('../Features/Helper/utils').searchByName = mockSearchByName;
 
     const {getByText, getByPlaceholderText, findByText} = render(<App />);
 
